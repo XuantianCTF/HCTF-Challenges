@@ -1,6 +1,6 @@
 CC       = gcc
 ASM      = nasm
-CFLAGS   = -no-pie -Wall -Wextra -O2 -fno-omit-frame-pointer
+CFLAGS   = -no-pie -Wall -Wextra -O2 -fno-omit-frame-pointer -static
 ASMFLAGS = -f elf64
 TARGET   = ctf_challenge
 OBJS     = main.o logic.o
