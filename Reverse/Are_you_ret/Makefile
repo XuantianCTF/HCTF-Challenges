@@ -1,21 +1,23 @@
 CC       = gcc
 ASM      = nasm
-CFLAGS   = -no-pie -Wall -Wextra -O2 -fno-omit-frame-pointer -static
 ASMFLAGS = -f elf64
 TARGET   = ctf_challenge
-OBJS     = main.o logic.o
+OBJS     = start.o logic.o core.o
 
 .PHONY: all clean run
 
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^
+	ld -o $@ $^ -e _start
 
-main.o: main.c
-	$(CC) $(CFLAGS) -c -o $@ $<
+start.o: start.asm
+	$(ASM) $(ASMFLAGS) -o $@ $<
 
 logic.o: logic.asm
+	$(ASM) $(ASMFLAGS) -o $@ $<
+
+core.o: core.asm
 	$(ASM) $(ASMFLAGS) -o $@ $<
 
 clean:
