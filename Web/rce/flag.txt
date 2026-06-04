@@ -1,0 +1,1 @@
+HCTF{no_echo_rce_0ut_0f_b4nd}

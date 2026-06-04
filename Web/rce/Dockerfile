@@ -1,20 +1,12 @@
-FROM ubuntu:22.04
+FROM php:8.2-apache
 
-ENV DEBIAN_FRONTEND=noninteractive
+RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
-RUN apt-get update && apt-get install -y \
-    apache2 \
-    php \
-    libapache2-mod-php \
-    iputils-ping \
-    && apt-get clean
+COPY index.php /var/www/html/index.php
+COPY flag.txt /flag.txt
 
-RUN rm /var/www/html/index.html
-COPY index.php /var/www/html/
+RUN chmod 644 /var/www/html/index.php /flag.txt
 
-RUN echo "HCTF{PHP_Remote_Code_Execution_Success}" > /flag \
-    && chmod 444 /flag
+RUN chown -R www-data:www-data /var/www/html
 
 EXPOSE 80
-
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
