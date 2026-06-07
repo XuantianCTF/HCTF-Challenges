@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Create player user
-RUN useradd -m -s /bin/bash player && echo "ctf:ctf" | chpasswd
+RUN useradd -m -s /bin/bash ctf && echo "ctf:ctf" | chpasswd
 
 # Set SUID bit on find so it runs as root
 RUN chmod u+s /usr/bin/find
@@ -17,8 +17,8 @@ RUN mkdir -p /root && \
     chown root:root /root/flag.txt
 
 # Hint for the player
-RUN echo "The flag is in /root/flag.txt, but I don't have permission to read it..." > /home/player/hint.txt && \
-    chown player:player /home/player/hint.txt
+RUN echo "The flag is in /root/flag.txt, but I don't have permission to read it..." > /home/ctf/hint.txt && \
+    chown ctf:ctf /home/ctf/hint.txt
 
 # SSH configuration
 RUN mkdir /var/run/sshd && \
