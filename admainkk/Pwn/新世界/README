@@ -10,9 +10,3 @@
 ＂是＂
 周围重新回到一片虚无
 
-
-
-gcc -m64 New_World.c -o New_World -fno-stack-protector -fno-pie -no-pie -z noexecstack  -lseccomp
-
-
-gcc -m64 New_World.c -o New_World -fno-stack-protector -fno-pie -no-pie -z noexecstack  -lseccomp    -fomit-frame-pointer
