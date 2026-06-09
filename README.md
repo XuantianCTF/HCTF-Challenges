@@ -36,6 +36,10 @@
 
 每个题目目录下需放置 flag 文件（文件名为 `flag` 或 `flag.txt`），文件中写入该题目的 Flag 值。
 
+### exp
+
+题目尽量附上exp，除非是非常简单的签到题
+
 ### 容器地址
 
 如果题目包含容器环境（Docker / docker-compose），需在题目目录下创建 `container` 文件，文件中写入docker hub容器地址（如 `tuxnode/hello-world`），以便部署与访问。
