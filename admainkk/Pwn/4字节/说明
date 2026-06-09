@@ -1,0 +1,3 @@
+❯ gcc -m32 c.c -o c -fno-stack-protector -fno-pie -no-pie -z noexecstack 
+编译
+考栈迁移
