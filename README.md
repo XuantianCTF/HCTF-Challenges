@@ -30,6 +30,28 @@
 
 禁止直接向 `main` 分支推送，以免造成仓库混乱。
 
+### 常用协作命令
+
+```bash
+# 1. 克隆仓库
+git clone git@github.com:xtsecurity/HCTF-Challenges.git
+cd HCTF-Challenges
+
+# 2. 从 main 创建新分支
+git checkout -b yourname/new-feature
+
+# 3. 添加题目并提交
+git add .
+git commit -m "feat: add yourname/Web/xxx"
+
+# 4. 推送并创建 PR （PR需要在github网页上操作）
+git push origin yourname/new-feature
+
+# 5. 同步 main 分支最新代码
+git checkout main
+git pull
+```
+
 ## 题目规范
 
 ### Flag
