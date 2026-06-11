@@ -10,6 +10,8 @@ RUN gcc -no-pie -fno-stack-protector -o /home/ctf/chall /home/ctf/chall.c && \
 
 COPY xinetd.conf /etc/xinetd.d/challenge
 
+COPY ./flag /
+
 EXPOSE 1337
 
 CMD ["/usr/sbin/xinetd", "-dontfork"]
